@@ -1,6 +1,6 @@
 'use client'
 import { Button } from "antd";
-import Constants from "./Constants";
+import { SAMPLING_RATE } from "./Constants";
 import { FolderOpenOutlined } from '@ant-design/icons';
 import { useEffect, useState } from "react";
 
@@ -31,7 +31,7 @@ const FileTile = (props: {
                 if (!arrayBuffer) return;
 
                 const audioCTX = new AudioContext({
-                    sampleRate: Constants.SAMPLING_RATE,
+                    sampleRate: SAMPLING_RATE,
                 });
 
                 const decoded = await audioCTX.decodeAudioData(arrayBuffer);

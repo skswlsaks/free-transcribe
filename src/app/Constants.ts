@@ -1,4 +1,6 @@
-function mobileTabletCheck() {
+'use client'
+
+export const mobileTabletCheck = () => {
     // https://stackoverflow.com/questions/11381673/detecting-a-mobile-browser
     let check = false;
     (function (a: string) {
@@ -20,16 +22,10 @@ function mobileTabletCheck() {
     );
     return check;
 }
-const isMobileOrTablet = mobileTabletCheck();
 
-export default {
-    SAMPLING_RATE: 16000,
-    DEFAULT_AUDIO_URL: `https://huggingface.co/datasets/Xenova/transformers.js-docs/resolve/main/${
-        isMobileOrTablet ? "jfk" : "ted_60"
-    }.wav`,
-    DEFAULT_MODEL: "tiny.en",
-    DEFAULT_SUBTASK: "transcribe",
-    DEFAULT_LANGUAGE: "english",
-    DEFAULT_QUANTIZED: isMobileOrTablet,
-    DEFAULT_MULTILINGUAL: false,
-};
+export const SAMPLING_RATE = 16000
+export const DEFAULT_MODEL = "tiny.en"
+export const DEFAULT_SUBTASK = "transcribe"
+export const DEFAULT_LANGUAGE = "english"
+export const DEFAULT_MULTILINGUAL = false
+export const DEFAULT_AUDIO_URL = (isMobileOrTablet: boolean) => `https://huggingface.co/datasets/Xenova/transformers.js-docs/resolve/main/${isMobileOrTablet ? "jfk" : "ted_60"}.wav`

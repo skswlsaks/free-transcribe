@@ -1,6 +1,12 @@
 'use client'
 import { useCallback, useEffect, useMemo, useRef, useState } from "react";
-import Constants from "./Constants";
+import {
+    DEFAULT_MODEL,
+    DEFAULT_SUBTASK,
+    DEFAULT_MULTILINGUAL,
+    DEFAULT_LANGUAGE,
+    mobileTabletCheck
+} from "./Constants";
 
 
 interface MessageEventHandler {
@@ -74,6 +80,12 @@ export function useTranscriber(): Transcriber {
 
     const [progressItems, setProgressItems] = useState<ProgressItem[]>([]);
 
+    const [model, setModel] = useState<string>(DEFAULT_MODEL);
+    const [subtask, setSubtask] = useState<string>(DEFAULT_SUBTASK);
+    const [quantized, setQuantized] = useState<boolean>(false);
+    const [multilingual, setMultilingual] = useState<boolean>(DEFAULT_MULTILINGUAL);
+    const [language, setLanguage] = useState<string>(DEFAULT_LANGUAGE);
+
     const workerRef = useRef<Worker>()
     useEffect(() => {
         let webWorker
@@ -144,21 +156,11 @@ export function useTranscriber(): Transcriber {
                 }
             });
             workerRef.current = webWorker
+            setQuantized(mobileTabletCheck())
         }
     }, [])
 
 
-    const [model, setModel] = useState<string>(Constants.DEFAULT_MODEL);
-    const [subtask, setSubtask] = useState<string>(Constants.DEFAULT_SUBTASK);
-    const [quantized, setQuantized] = useState<boolean>(
-        Constants.DEFAULT_QUANTIZED,
-    );
-    const [multilingual, setMultilingual] = useState<boolean>(
-        Constants.DEFAULT_MULTILINGUAL,
-    );
-    const [language, setLanguage] = useState<string>(
-        Constants.DEFAULT_LANGUAGE,
-    );
 
     const onInputChange = useCallback(() => {
         setTranscript(undefined);
