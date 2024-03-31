@@ -4,6 +4,7 @@ import { Button, List, Divider } from 'antd';
 import InfiniteScroll from 'react-infinite-scroll-component';
 import { useTranscriber } from './useTranscriber';
 import FileTile from './FileTile';
+import GoogleAd from './GoogleAd';
 
 enum AudioSource {
     URL = "URL",
@@ -30,8 +31,14 @@ const Home: React.FC = () => {
     }
 
     return (
-    <div className='flex justify-center items-center min-h-screen'>
+    <div className='flex items-center min-h-screen' style={{ flexDirection: "row", justifyContent: "space-between"}}>
+        <div style={{ width: "90px", height: "728px", marginLeft: "20px" }}>
+            <GoogleAd />
+        </div>
         <div className='container flex flex-col justify-center items-center z-10'>
+            <div style={{ width: "728px", height: "90px", marginTop: "20px" }}>
+                <GoogleAd />
+            </div>
             <h1
                 className='text-5xl font-extrabold tracking-tight text-slate-900 sm:text-5xl text-center'
                 style={{color: "white"}}
@@ -90,8 +97,11 @@ const Home: React.FC = () => {
                     </div>
                 )
             }
-          </div>
-      </div>
+        </div>
+        <div style={{ width: "90px", height: "728px", marginRight: "20px" }}>
+            <GoogleAd />
+        </div>
+    </div>
   );
 }
 
