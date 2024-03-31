@@ -11,67 +11,6 @@ enum AudioSource {
     RECORDING = "RECORDING",
 }
 
-const process_chunk = () => {
-
-}
-
-const chunks = [
-    {
-        text: "hello"
-    },
-    {
-        text: "world"
-    },
-    {
-        text: "nihao"
-    },
-    {
-        text: "hello"
-    },
-    {
-        text: "world"
-    },
-    {
-        text: "nihao"
-    },
-    {
-        text: "hello"
-    },
-    {
-        text: "world"
-    },
-    {
-        text: "nihao"
-    },
-    {
-        text: "hello"
-    },
-    {
-        text: "world"
-    },
-    {
-        text: "nihao"
-    },
-    {
-        text: "hello"
-    },
-    {
-        text: "world"
-    },
-    {
-        text: "nihao"
-    },
-    {
-        text: "hello"
-    },
-    {
-        text: "world"
-    },
-    {
-        text: "nihao"
-    },
-]
-
 const Home: React.FC = () => {
     const transcriber = useTranscriber();
     const [audioData, setAudioData] = useState<
@@ -126,22 +65,6 @@ const Home: React.FC = () => {
             }
             {
                 transcriber.output && (
-                      // <div>
-                      //     {
-                      //         transcriber.output.chunks.map((chunk, i) => (
-                      //             <div
-                      //                 key={`${i}-${chunk.text}`}
-                      //                 className='w-full flex flex-row mb-2 bg-white rounded-lg p-4 shadow-xl shadow-black/5 ring-1 ring-slate-700/10'
-                      //                 style={{color: "black"}}
-                      //             >
-                      //                 {/* <div className='mr-5'>
-                      //                     {formatAudioTimestamp(chunk.timestamp[0])}
-                      //                 </div> */}
-                      //                 {chunk.text}
-                      //             </div>
-                      //         ))
-                      //     }
-                      // </div>
                     <div className='transcribe-result-list'>
                         <InfiniteScroll
                             dataLength={transcriber.output.chunks.length}

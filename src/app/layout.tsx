@@ -3,6 +3,7 @@ import { Inter } from "next/font/google";
 import "./globals.css";
 import { ConfigProvider } from "antd";
 import { GoogleAnalytics } from "@next/third-parties/google";
+import Script from "next/script";
 
 const inter = Inter({ subsets: ["latin"] });
 
@@ -18,6 +19,13 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
+      <Script
+        id="ca-pub-2865579941111232"
+        async={true}
+        src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-2865579941111232"
+      >
+      </Script>
+      <meta name="google-adsense-account" content="ca-pub-2865579941111232"></meta>
       <link rel="icon" href="/icon.png" sizes="any" />
       <body className={inter.className}>
         <ConfigProvider
