@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import { Inter } from "next/font/google";
 import "./globals.css";
 import { ConfigProvider } from "antd";
+import { GoogleAnalytics } from "@next/third-parties/google";
 
 const inter = Inter({ subsets: ["latin"] });
 
@@ -17,6 +18,7 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
+      <link rel="icon" href="/icon.png" sizes="any" />
       <body className={inter.className}>
         <ConfigProvider
           theme={{
@@ -32,6 +34,7 @@ export default function RootLayout({
           {children}
         </ConfigProvider>
       </body>
+      <GoogleAnalytics gaId="G-N3F3DSVMW0" />
     </html>
   );
 }

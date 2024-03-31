@@ -31,3 +31,19 @@ body {
     text-wrap: balance;
   }
 }
+
+.transcribe-result-list {
+  height: 500px;
+  width: 800px;
+  overflow: auto;
+  padding: 0 16px;
+}
+
+.transcribe-result-item {
+  background: white;
+  border: 0.5px solid #1677ff;
+  border-radius: 4px;
+  width: fit-content;
+  display: flex;
+  flex-direction: column;
+}
